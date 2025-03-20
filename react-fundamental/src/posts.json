@@ -2,16 +2,19 @@
   {
     "title": "Tutorial Belajar Reactks Lengkap",
     "tags": ["react", "frontend"],
-    "date": "2020-01-01"
+    "date": "2020-01-01",
+    "isNew": true
   },
   {
     "title": "Tutorial Belajar React Router",
     "tags": ["react", "frontend"],
-    "date": "2020-01-02"
+    "date": "2020-01-02",
+    "isNew": false
   },
   {
     "title": "Cara menggunakan chakra-ui di React",
     "tags": ["react", "css"],
-    "date": "2020-01-03"
+    "date": "2020-01-03",
+    "isNew": false
   }
 ]
