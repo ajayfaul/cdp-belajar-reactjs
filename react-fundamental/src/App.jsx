@@ -4,7 +4,9 @@ import Article from "./components/Article";
 function App() {
   return (
     <>
-      <Article />
+      <Article name="beruk" titles={["Tutorial react", "React Fundamental"]} />
+      <br />
+      <Article name="chloe" titles={["Nextjs", "laravel"]} />
     </>
   );
 }
