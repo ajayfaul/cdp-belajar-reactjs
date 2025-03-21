@@ -28,10 +28,21 @@ function Homepage() {
     // return () => {
     //   console.log("cleanup");
     // };
+    // console.log("ada post baru");
+
     fetch("https://jsonplaceholder.typicode.com/posts")
       .then((response) => response.json())
       .then((json) => setExternalPosts(json));
   }, []);
+
+  useEffect(() => {
+    console.log("ada post baru");
+  }, [posts]);
+
+  // ini akan dijalankan setiap kali ada perubahan pada posts
+  useEffect(() => {
+    console.log("render terus");
+  });
 
   return (
     <>
