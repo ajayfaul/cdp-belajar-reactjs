@@ -5,6 +5,7 @@ import Search from "../components/Search";
 function Homepage() {
   const [posts, setPosts] = useState(postsData);
   const [totalPosts, setTotalPosts] = useState(0);
+  const [externalPosts, setExternalPosts] = useState([]);
 
   const onSearchChange = (value) => {
     const filteredPosts = postsData.filter((item) =>
@@ -21,13 +22,16 @@ function Homepage() {
   // sekarang kita menggunakan useEffect hook untuk menggantikan ketiga lifecycle method tersebut
 
   useEffect(() => {
-    console.log("Render");
+    // console.log("Render");
     // useEffect ini akan dijalankan setiap kali ada perubahan pada posts
     // mengganti componentWillUnmount dengan return di useEffect
-    return () => {
-      console.log("cleanup");
-    };
-  }, [posts]);
+    // return () => {
+    //   console.log("cleanup");
+    // };
+    fetch("https://jsonplaceholder.typicode.com/posts")
+      .then((response) => response.json())
+      .then((json) => setExternalPosts(json));
+  }, []);
 
   return (
     <>
@@ -40,6 +44,11 @@ function Homepage() {
         // <Article title={title} tags={tags} date={date} />
         // menggunakan spread operator
         <Article {...props} key={index} />
+      ))}
+      <hr />
+      <h2>External Posts</h2>
+      {externalPosts.map((item, index) => (
+        <div key={index}>-{item.title}</div>
       ))}
     </>
   );
